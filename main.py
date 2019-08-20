@@ -48,7 +48,7 @@ async def on_message(message):
             if i.permissions.administrator:
                 is_user_admin = True
         if is_user_admin:
-            await message.channel.send("Admin commande") 
+            await message.channel.send("TEST") 
 
 
 client.run(cm_token.token)
