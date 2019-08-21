@@ -1,8 +1,7 @@
 
-import discord 
+import discord, time, datetime
 import cm_token
 import random 
-import time
 import asyncio
 from discord.ext import commands
 
@@ -23,7 +22,7 @@ async def on_message(message):
     # ALL USERS COMMANDS #
 
     if message.content == ".help":
-        embed = discord.Embed(title="**HELP ON BOT**", description="Some useful command", color=0x750075)
+        embed = discord.Embed(title="**HELP ON BOT**", description="Some useful command", color=0x750075, timestamp=datetime.datetime.utcnow())
         embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/603734865183244308/613455636658651147/badges2_72.png")
         embed.add_field(name="*.bot*", value="ㅤ", inline=False)
         embed.add_field(name="*.git*", value="ㅤ", inline=False)
@@ -52,7 +51,7 @@ async def on_message(message):
             if i.permissions.administrator:
                 is_user_admin = True
         if is_user_admin:
-            await message.channel.send("TEST") 
+            await message.channel.send("TEST")
 
 
 client.run(cm_token.token)
