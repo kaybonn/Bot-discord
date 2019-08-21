@@ -26,6 +26,7 @@ async def on_message(message):
         embed = discord.Embed(title="**HELP ON BOT**", description="Some useful command", color=0x750075)
         embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/603734865183244308/613455636658651147/badges2_72.png")
         embed.add_field(name="*.bot*", value="ㅤ", inline=False)
+        embed.add_field(name="*.git*", value="ㅤ", inline=False)
         embed.add_field(name="*.roll*", value="ㅤ", inline=False)
         embed.add_field(name="*.pfc*", value="ㅤ", inline=False)
         embed.set_footer(text="@KAYBON#8555")
@@ -39,6 +40,9 @@ async def on_message(message):
 
     elif message.content.startswith('.pfc'):
         await channel.send(random.choice(['Pierre', 'Feuille', 'Ciseaux']))
+
+    elif message.content.startswith('.git'):
+        await channel.send('https://github.com/kaybonn')
 
     # ADMIN COMMANDS #
 
