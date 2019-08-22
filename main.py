@@ -31,16 +31,16 @@ async def on_message(message):
         embed.set_footer(text="@KAYBON#8555")
         await message.channel.send(content=None, embed=embed)
 
-    elif message.content.startswith('.bot'):
+    elif message.content == ".bot":
         await channel.send('Made by Kaybon ©')
 
-    elif message.content.startswith('.roll'):
+    elif message.content == ".roll":
         await channel.send(random.randint(1,101))
 
-    elif message.content.startswith('.pfc'):
+    elif message.content == ".pfc":
         await channel.send(random.choice(['Pierre', 'Feuille', 'Ciseaux']))
 
-    elif message.content.startswith('.git'):
+    elif message.content == ".git":
         await channel.send('https://github.com/kaybonn')
 
     # ADMIN COMMANDS #
@@ -52,8 +52,8 @@ async def on_message(message):
                 is_user_admin = True
         if is_user_admin:
             await message.channel.send("TEST") 
-            
-    # kick command ( doesn't work, idk why ) # 
+
+    # kick command ( doesn't work, idk why ) #
 
 @client.command(pass_context = True)
 @commands.has_permissions(kick_members=True)
