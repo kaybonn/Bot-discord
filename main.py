@@ -1,4 +1,4 @@
-
+    # SOME IMPORTS #
 import discord, time, datetime
 import cm_token
 import random 
@@ -51,7 +51,14 @@ async def on_message(message):
             if i.permissions.administrator:
                 is_user_admin = True
         if is_user_admin:
-            await message.channel.send("TEST")
+            await message.channel.send("TEST") 
+            
+    # kick command ( doesn't work, idk why ) # 
 
-
+@client.command(pass_context = True)
+@commands.has_permissions(kick_members=True)
+async def kick(ctx, userName: discord.User):
+    pass
+    
+   
 client.run(cm_token.token)
