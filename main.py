@@ -11,6 +11,9 @@ client = commands.Bot(command_prefix = '.')
 async def on_ready():
     await client.change_presence(activity=discord.Game(name='.help - Kaybon#8555'))
     print('Bot is ready.')
+    print(client.user.name)
+    print(client.user.id)
+    print('------')
 
 @client.event
 async def on_message(message):
@@ -24,12 +27,10 @@ async def on_message(message):
     if message.content == ".help":
         embed = discord.Embed(title="**HELP ON BOT**", description="Some useful command", color=0x750075, timestamp=datetime.datetime.utcnow())
         embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/603734865183244308/613455636658651147/badges2_72.png")
-        embed.add_field(name="*.bot*", value="ㅤ", inline=False)
-        embed.add_field(name="*.git*", value="ㅤ", inline=False)
-        embed.add_field(name="*.roll*", value="ㅤ", inline=False)
-        embed.add_field(name="*.pfc*", value="ㅤ", inline=False)
+        embed.add_field(name="*Fun(2)*", value="`.pfc`, `.roll`", inline=False)
+        embed.add_field(name="*Utility(2)*", value="`.bot`, `.git`", inline=False)
         embed.set_footer(text="@KAYBON#8555")
-        await message.channel.send(content=None, embed=embed)
+        await author.send(content=None, embed=embed)
 
     elif message.content == ".bot":
         await channel.send('Made by Kaybon ©')
@@ -55,10 +56,10 @@ async def on_message(message):
 
     # kick command ( doesn't work, idk why ) #
 
-@client.command(pass_context = True)
+@client.event
 @commands.has_permissions(kick_members=True)
-async def kick(ctx, userName: discord.User):
-    pass
-    
-   
+async def kick(ctx, member : discord.Member, *, reason=None):
+    await member.kick(reason=reason)
+    await ctx.send(f"{ctx.message.author} kicked {member} for this reason: '{reason}'")
+  
 client.run(cm_token.token)
