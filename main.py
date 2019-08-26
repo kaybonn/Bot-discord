@@ -48,7 +48,8 @@ async def on_message(message):
         await channel.send(random.randint(1,101))
 
     elif message.content == ".rate":
-        await channel.send('I rate you' + random.randint(1,11))
+        x = random.randint(0, 10)
+        await channel.send("I rate you {}/10".format(x))
 
     elif message.content == ".pfc":
         await channel.send(random.choice(['Pierre', 'Feuille', 'Ciseaux']))
